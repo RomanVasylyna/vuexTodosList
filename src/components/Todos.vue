@@ -2,19 +2,19 @@
 
  <div class="todos">
 
-   <div class="todo" 
-   v-for="todo in allTodos" 
+   <div class="todo"
+   v-for="(todo, index) in allTodos"
    :key="todo.id">
 
     {{ todo.title }}
 
     <!-- Font-Awesome Icon -->
-    <i class="fas fa-trash-alt"></i>
+    <i class="fas fa-trash-alt" @click="deleteTodo(index)"></i>
 
-    </div> 
+    </div>
 
- 
-</div> 
+
+</div>
 </template>
 
 <script>
@@ -29,7 +29,11 @@ computed: mapGetters(["allTodos"]),
 
 methods: {
 
-...mapActions(["fetchTodos"]),
+...mapActions(["fetchTodos", "removeTodo"]),
+
+deleteTodo(index) {
+this.$store.dispatch('removeTodo', index);
+}
 
 
 },
@@ -50,14 +54,21 @@ justify-content: center;
 text-align: center;
 margin: 30px auto;
 width: 60vw;
-background: gold;
+/* background: gold; */
+flex-wrap: wrap;
 }
 
 .todo{
+display: flex;
+flex-direction: column;
 background: rgb(11, 175, 134);
-border-radius: 5px;    
-padding: 30px 40px;
-margin: 10px;
+border-radius: 5px;
+padding: 20px 10px;
+margin: 7px;
+flex-grow: 1;
+width:15vw;
+height: 12.5vh;
+word-wrap: break-word;
 }
 
 .todo:hover{
@@ -67,7 +78,8 @@ cursor: pointer;
 }
 
 .fas{
-margin-left: 20px;
+position: absolute;
+margin: 6vh 8.3vw;
 }
 
 </style>

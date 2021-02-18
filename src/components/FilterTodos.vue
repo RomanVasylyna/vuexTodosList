@@ -1,28 +1,48 @@
 <template>
   <div class="filter-todos">
-      
+
       <h3>Filter Todos</h3>
 
-      <select>
+      <select @change="filterTodos($event)">
           <option value="200">200</option>
+          <option value="100">100</option>
+          <option value="50">50</option>
+          <option value="20">20</option>
+          <option value="10">10</option>
+          <option value="5">5</option>
       </select>
-      
+
   </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
-name: 'FilterTodos'
+name: 'FilterTodos',
+
+methods: {
+
+...mapActions(["filterTodos"]),
+
+// Getting number of todos depending on the option value
+filterTodos(event) {
+this.$store.dispatch("filterTodos", event);
+}
+
+},
+
+
 }
 </script>
 
 <style>
-.filter-todos{  
-margin: 30px 0; 
+.filter-todos{
+margin: 30px 0;
 }
 
 .filter-todos select{
-margin: 7px 0;      
+margin: 7px 0;
 width: 10vw;
 height: 3vh;
 position: relative;
@@ -31,7 +51,7 @@ right: 25vw
 
 .filter-todos h3{
 position: relative;
-right: 25vw    
+right: 25vw
 }
 
 </style>

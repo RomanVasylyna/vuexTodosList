@@ -1,10 +1,10 @@
 <template>
   <div id="app">
-  <div class="container">  
+  <div class="container">
    <AddTodo/>
    <FilterTodos/>
    <Todos/>
-  </div>  
+  </div>
   </div>
 </template>
 
@@ -18,7 +18,7 @@ export default {
   components: {
   Todos,
   AddTodo,
-  FilterTodos  
+  FilterTodos
   }
 }
 </script>
@@ -32,11 +32,11 @@ padding: 0;
 }
 
 body{
-background: rgb(226, 255, 243);    
+background: rgb(226, 255, 243);
 }
 
 .container{
-text-align: center; 
+text-align: center;
 margin: 30px auto;
 }
 

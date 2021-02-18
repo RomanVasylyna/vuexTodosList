@@ -2,8 +2,8 @@
   <div>
       <h2>Add Todo</h2>
 
-      <form>
-        <input type="text" placeholder="Add Todo...">  
+      <form @submit.prevent="addTodo">
+        <input type="text" placeholder="Add Todo..." v-model="title">
         <button type="submit">Submit</button>
       </form>
 
@@ -11,15 +11,35 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
 name: 'AddTodo',
+
+data() {
+return {
+title: ''
+}
+},
+
+methods: {
+
+...mapActions(["addTodo"]),
+
+addTodo() {
+this.$store.dispatch('addTodo');
+this.title = '';
+},
+
+}
+
 }
 </script>
 
 <style>
 
 form{
-margin-top: 20px;    
+margin-top: 20px;
 }
 
 input[type="text"]{
@@ -31,8 +51,8 @@ outline: none;
 }
 
 button[type="submit"]{
-height: 5.1vh;  
-width: 15vw;  
+height: 5.1vh;
+width: 15vw;
 background: rgb(11, 175, 134);
 color: #fff;
 border: none;
@@ -42,7 +62,7 @@ cursor: pointer;
 
 button[type="submit"]:hover{
 background: rgb(37, 37, 37);
-color: #fff;    
+color: #fff;
 }
 
 </style>
