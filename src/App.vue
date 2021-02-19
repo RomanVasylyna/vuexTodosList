@@ -3,6 +3,20 @@
   <div class="container">
    <AddTodo/>
    <FilterTodos/>
+   <h3>All Todos</h3>
+   <legend>
+     <p>Click to Mark Completed</p>
+
+     <div class="wrapper">
+     <div class="green"></div> 
+     <p>=Incomplete</p>
+     </div>
+     
+     <div class="wrapper">
+     <div class="black"></div>
+     <p>=Complete</p>
+     </div>
+   </legend>
    <Todos/>
   </div>
   </div>
@@ -38,6 +52,32 @@ background: rgb(226, 255, 243);
 .container{
 text-align: center;
 margin: 30px auto;
+}
+
+legend{
+display: flex;  
+justify-content: space-around;
+align-items: center;
+width: 30vw;
+margin: 20px auto;
+}
+
+legend .green{
+background: rgb(11, 175, 134);
+height: 12px;
+width: 12px;
+}
+
+legend .black{
+background: rgb(37, 37, 37);
+height: 10px;
+width: 10px;
+}
+
+legend .wrapper{
+display: flex;  
+justify-content: center;
+align-items: center;
 }
 
 #app {

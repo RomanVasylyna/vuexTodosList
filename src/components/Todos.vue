@@ -1,9 +1,11 @@
 <template>
 
  <div class="todos">
-
+  
    <div class="todo"
+   :class="{ 'completed': todo.completed }"
    v-for="(todo, index) in allTodos"
+   @click="changeStatus(todo.id)"
    :key="todo.id">
 
     {{ todo.title }}
@@ -33,6 +35,13 @@ methods: {
 
 deleteTodo(index) {
 this.$store.dispatch('removeTodo', index);
+},
+
+changeStatus(id) {
+// let current = this.allTodos.find(todo => todo.id === id);  
+// current.completed = true; 
+this.$store.dispatch('todoStatus', id);
+// console.log(current);
 }
 
 
@@ -69,17 +78,24 @@ flex-grow: 1;
 width:15vw;
 height: 12.5vh;
 word-wrap: break-word;
+cursor: pointer;
 }
 
-.todo:hover{
+/* .todo:hover{
 background: rgb(37, 37, 37);
 color: #fff;
 cursor: pointer;
-}
+} */
 
 .fas{
 position: absolute;
 margin: 6vh 8.3vw;
 }
+
+.completed{
+background: rgb(37, 37, 37);
+color: #fff;
+}
+
 
 </style>

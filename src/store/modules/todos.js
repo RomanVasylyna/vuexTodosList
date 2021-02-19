@@ -29,6 +29,11 @@ REMOVE_TODO(state, index) {
 state.todos.splice(index, 1);
 },
 
+TODO_STATUS(state, id) {
+let current = state.todos.find(todo => todo.id === id);
+current.completed = !current.completed;     
+}
+
 
 };
 
@@ -54,16 +59,15 @@ async filterTodos({ commit }, limit) {
 
 // Remove Single Todo
 removeTodo({ commit }, index) {
-    commit('REMOVE_TODO', index);
+commit('REMOVE_TODO', index);
 },
 
 addTodo({ commit }, newTodo) {
-newTodo = {
-completed: false,
-id: state.todos.length + 1,
-title: 'Test'
-};
 commit('ADD_TODO', newTodo);
+},
+
+todoStatus({ commit }, id) {   
+commit('TODO_STATUS', id);
 }
 
 // Fetch Todos with a promise

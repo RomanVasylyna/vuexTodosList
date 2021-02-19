@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
 name: 'AddTodo',
@@ -22,12 +22,22 @@ title: ''
 }
 },
 
+computed: mapGetters(["allTodos"]),
+
 methods: {
 
 ...mapActions(["addTodo"]),
 
 addTodo() {
-this.$store.dispatch('addTodo');
+
+// Creating a new todo object  
+const newTodo = {
+completed: false,
+id: this.allTodos.length + 1,
+title : this.title
+};
+
+this.$store.dispatch('addTodo', newTodo);
 this.title = '';
 },
 
