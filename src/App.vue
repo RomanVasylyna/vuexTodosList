@@ -70,8 +70,8 @@ width: 12px;
 
 legend .black{
 background: rgb(37, 37, 37);
-height: 10px;
-width: 10px;
+height: 12px;
+width: 12px;
 }
 
 legend .wrapper{
@@ -88,4 +88,76 @@ align-items: center;
   color: #2c3e50;
   margin-top: 60px;
 }
+
+
+/* Phones */
+@media (max-width: 690px) {
+
+legend{
+display: flex;  
+flex-direction: column;
+align-items: center;
+justify-content: center;
+width: 30vw;
+margin: 20px auto;
+font-size: 14px;
+} 
+
+legend .green{
+background: rgb(11, 175, 134);
+height: 12px;
+width: 12px;
+margin:10px 0;
+}
+
+legend .black{
+background: rgb(37, 37, 37);
+height: 12px;
+width: 12px;
+margin-top:10px 0;
+}
+
+}  
+
+/* Ipad and other tablets*/
+@media only screen and (max-width: 800px) and (min-width: 700px) {
+  
+legend{
+display: flex;  
+align-items: center;
+justify-content: center;
+width: 30vw;
+margin: 20px auto;
+font-size: 1rem;
+} 
+
+legend .wrapper{
+display: flex;  
+justify-content: center;
+align-items: center;
+margin-left: 30px;
+}
+
+}
+
+/* Ipad Pro */
+@media only screen and (max-width: 1100px) and (min-width: 1000px) {
+
+legend{
+display: flex;  
+align-items: center;
+justify-content: center;
+width: 30vw;
+margin: 20px auto;
+font-size: 1.2rem;
+}   
+
+legend .wrapper{
+display: flex;  
+justify-content: center;
+align-items: center;
+margin-left: 30px;
+}
+
+}  
 </style>

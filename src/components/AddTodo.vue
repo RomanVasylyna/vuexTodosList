@@ -75,4 +75,28 @@ background: rgb(37, 37, 37);
 color: #fff;
 }
 
+/* Ipad Pro */
+@media only screen and (max-width: 1100px) and (min-width: 1000px) {
+
+input[type="text"]{
+width: 45vw;
+height: 4vh;
+padding: 0px 5px;
+border: 1px solid #ccc;
+outline: none;
+} 
+
+button[type="submit"]{
+height: 4vh;
+width: 15vw;
+background: rgb(11, 175, 134);
+color: #fff;
+border: none;
+outline: none;
+cursor: pointer;
+}
+
+}
+
+
 </style>

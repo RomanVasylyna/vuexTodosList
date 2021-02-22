@@ -11,7 +11,7 @@
     {{ todo.title }}
 
     <!-- Font-Awesome Icon -->
-    <i class="fas fa-trash-alt" @click="deleteTodo(index)"></i>
+    <i class="fas fa-trash-alt" @click.stop="deleteTodo(index)"></i>
 
     </div>
 
@@ -56,6 +56,7 @@ this.$store.dispatch('fetchTodos');
 
 <style>
 
+
 .todos{
 display: flex;
 align-items: center;
@@ -63,39 +64,79 @@ justify-content: center;
 text-align: center;
 margin: 30px auto;
 width: 60vw;
-/* background: gold; */
 flex-wrap: wrap;
 }
 
 .todo{
 display: flex;
 flex-direction: column;
+justify-content: space-between;
 background: rgb(11, 175, 134);
 border-radius: 5px;
 padding: 20px 10px;
 margin: 7px;
 flex-grow: 1;
 width:15vw;
-height: 12.5vh;
+height: 19vh;
 word-wrap: break-word;
 cursor: pointer;
 }
 
-/* .todo:hover{
-background: rgb(37, 37, 37);
-color: #fff;
-cursor: pointer;
-} */
-
 .fas{
-position: absolute;
-margin: 6vh 8.3vw;
+margin: 5vh 8vw;
 }
 
 .completed{
 background: rgb(37, 37, 37);
 color: #fff;
 }
+
+/* Phones */
+@media (max-width: 690px) {
+
+.todo{
+font-size: 14px;
+padding: 20px 10px;
+width:30vw;
+}  
+
+.fas{
+margin: 3vh 8vw;
+}
+
+}
+
+/* Ipad and other tablets*/
+@media only screen and (max-width: 800px) and (min-width: 700px) {
+
+.todo{
+font-size: 17px;
+padding: 20px 10px;
+height: 17vh;
+width:25vw;
+}  
+
+.fas{
+margin: 5vh 0;
+}
+
+}  
+
+/* Ipad Pro */
+@media only screen and (max-width: 1100px) and (min-width: 1000px) {
+
+
+.todo{
+font-size: 1.2rem;
+padding: 20px 10px;
+height: 14vh;
+width:18vw;
+}  
+
+.fas{
+margin: 4vh 0;
+} 
+}  
 
 
 </style>

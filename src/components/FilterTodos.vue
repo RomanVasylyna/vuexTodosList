@@ -37,6 +37,8 @@ this.$store.dispatch("filterTodos", event);
 </script>
 
 <style>
+
+/* All Screen Sizes */
 .filter-todos{
 margin: 30px 0;
 }
@@ -52,6 +54,60 @@ right: 25vw
 .filter-todos h3{
 position: relative;
 right: 25vw
+}
+
+/* Phones */
+@media (max-width: 690px) {
+
+.filter-todos h3{
+position: relative;
+right: 0;
+}
+
+.filter-todos select{
+margin: 7px 0;
+width: 20vw;
+height: 5vh;
+position: relative;
+right: 0;
+}
+
+}  
+
+/* Ipad and other tablets*/
+@media only screen and (max-width: 800px) and (min-width: 700px) {
+
+.filter-todos h3{
+position: relative;
+right: 0;
+}
+
+.filter-todos select{
+margin: 7px 0;
+width: 20vw;
+height: 4vh;
+position: relative;
+right: 0;
+}
+
+} 
+
+/* Ipad Pro */
+@media only screen and (max-width: 1100px) and (min-width: 1000px) {
+
+.filter-todos h3{
+position: relative;
+right: 0;
+}
+
+.filter-todos select{
+margin: 7px 0;
+width: 20vw;
+height: 3vh;
+position: relative;
+right: 0;
+}
+
 }
 
 </style>

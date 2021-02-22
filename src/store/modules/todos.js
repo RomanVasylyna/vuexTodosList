@@ -30,8 +30,10 @@ state.todos.splice(index, 1);
 },
 
 TODO_STATUS(state, id) {
-let current = state.todos.find(todo => todo.id === id);
-current.completed = !current.completed;     
+let current = state.todos.find(todo => todo.id === id);    
+if(current) {
+current.completed = !current.completed;   
+}      
 }
 
 
